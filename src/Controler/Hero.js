@@ -44,7 +44,7 @@ export async function updateHero(req, res){
 export async function deleteHero(req, res){
     let id = req.body.id;
     openDb().then(db=>{
-        db.get('DELETE FROM Hero WHERE id=?', [id])
+        db.run('DELETE FROM Hero WHERE id=?', [id])
         .then(res=>res)
     });
     res.json({
